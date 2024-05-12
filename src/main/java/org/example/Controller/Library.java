@@ -21,7 +21,6 @@ public class Library {
     private final AuthorRepo authorRepo;
     private final BookRepo bookRepo;
     private final GenreRepo genreRepo;
-
     @Autowired
     public Library(AuthorRepo authorRepo, BookRepo bookRepo, GenreRepo genreRepo) {
         this.authorRepo = authorRepo;
@@ -32,7 +31,6 @@ public class Library {
     public ModelAndView get() {
         ModelAndView modelAndView = new ModelAndView();
         List<Author> authors = authorRepo.findAll();
-        //List<BookDTO> books = bookRepo.findAll();
         List<Book> books=bookRepo.findALL();
         List<Genre> genres = genreRepo.findAll();
         modelAndView.addObject("authors", authors);

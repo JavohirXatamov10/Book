@@ -46,6 +46,7 @@
 <div class="card-container">
     <div class="card" th:each="book:${books}">
         <h2 th:text="${book.name}"></h2>
+<!--        <p th:text="'Genre: '+${book.genre}"></p>-->
         <a th:href="|/book/showBooks/${book.getId()}|" class="btn btn-dark text-white w-100 mt-auto">Show book info</a>
     </div>
 </div>

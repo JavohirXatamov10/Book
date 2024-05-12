@@ -30,14 +30,9 @@ public class GenreController {
     @GetMapping("/showGenreAndBook/{id}")
     public ModelAndView sentToGenreAndBook(@PathVariable("id") Integer authorId, HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-
-
         List<Genre>genres=genreRepo.findByAuthorId(authorId);
         List<Book> books=bookRepo.findALLByAuthorId(authorId);
         Author author= authorRepo.findById(authorId);
-
-
-
         String genreid = request.getParameter("genreid");
         if(genreid!=null){
             int genreId = Integer.parseInt(genreid);

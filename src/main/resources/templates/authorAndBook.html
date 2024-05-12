@@ -30,9 +30,6 @@
     </style>
 </head>
 <body>
-
-
-
 <hr>
 <h1>Author</h1>
 <div class="card-container">
@@ -47,6 +44,7 @@
             <a th:href="|/author/showAuthorAndBook/${genre.id}?authorId=${author.getId()}|" class="btn btn-dark w-100 mt-auto">Show</a>
         </div>
     </div>
+</div>
     <hr>
     <h1>Books</h1>
     <div class="card-container">
@@ -54,7 +52,6 @@
             <h3 th:text="${book.name}"></h3>
             <a th:href="|/book/showGenreBook/${book.getId()}|" class="btn btn-dark text-white w-100 mt-auto">Show book info</a>
         </div>
-    </div>
     </div>
 </body>
 </html>

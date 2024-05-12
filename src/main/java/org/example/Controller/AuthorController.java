@@ -20,13 +20,9 @@ import java.util.List;
 @RequestMapping("author")
 @RequiredArgsConstructor
 public class AuthorController {
-
-
     private final BookRepo bookRepo;
     private final GenreRepo genreRepo;
     private final AuthorRepo authorRepo;
-
-
     @GetMapping("/showAuthorAndBook/{id}")
         public ModelAndView sentToGenreAndBook(@PathVariable("id") Integer genreId, HttpServletRequest request){
             ModelAndView modelAndView = new ModelAndView();

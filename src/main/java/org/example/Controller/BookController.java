@@ -17,7 +17,6 @@ public class BookController {
     public BookController(BookRepo bookRepo) {
         this.bookRepo = bookRepo;
     }
-
     @GetMapping("/showBooks/{id}")
     public ModelAndView showAllBooks(@PathVariable(name = "id") Integer id){
         ModelAndView modelAndView=new ModelAndView();
@@ -26,9 +25,6 @@ public class BookController {
         modelAndView.setViewName("allBooks");
         return modelAndView;
     }
-
-
-
     @GetMapping("/showGenreBook/{id}")
     public ModelAndView showAllBooksInGenrePage(@PathVariable(name = "id") Integer id){
         ModelAndView modelAndView=new ModelAndView();
@@ -37,17 +33,11 @@ public class BookController {
         modelAndView.setViewName("allBooks");
         return modelAndView;
     }
-
-
     @GetMapping("/back")
     public String backTo(){
         return "redirect:/library";
     }
 
-//    @GetMapping("/backToGenrePage/{id}")
-//    public String backToGenrePage(@PathVariable(name="id") Integer id){
-//        return "redirect:/library/showGenreAndBook/"+id;
-//    }
 
 
 }

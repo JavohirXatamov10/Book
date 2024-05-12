@@ -19,7 +19,6 @@ public class SpringConfig {
     }
     @Bean
     public JdbcTemplate jdbcTemplate(){
-
         return new JdbcTemplate(dataSource());
     }
 

@@ -19,7 +19,6 @@ public class AuthorRepo {
         var mapper= BeanPropertyRowMapper.newInstance(Author.class);
         return jdbcTemplate.query(sql, mapper);
     }
-
     public Author findById(Integer authorId) {
 
         var sql="select *from author where id=?";
@@ -27,16 +26,11 @@ public class AuthorRepo {
         return jdbcTemplate.queryForObject(sql,mapper,authorId);
 
     }
-
     public List<Author> findByGenreId(Integer genreId) {
         String sql = "select a.* from author a join public.book b on a.id = b.author_id join genre g on b.genre_id=g.id where g.id=? group by a.id, a.name;";
-
-
         var mapper = BeanPropertyRowMapper.newInstance(Author.class);
         return jdbcTemplate.query(sql, mapper,genreId);
-
     }
-
     public Author findByIdGenreId(Integer genreId) {
         try {
             String sql = "SELECT a.* FROM author a " +
@@ -51,5 +45,4 @@ public class AuthorRepo {
             return null; // or throw a custom exception, log the error, etc.
         }
     }
-
 }
