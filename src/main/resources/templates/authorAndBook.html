@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Box Example</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        /* Style for card box */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Adjust to your preference */
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 200px;
+            margin: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
 
+
+
+<hr>
+<h1>Author</h1>
+<div class="card-container">
+    <div class="card-container">
+        <div class="card" >
+            <a th:href="|/author/showAuthorAndBook/${genre.getId()}|" class="btn btn-dark w-100 my-3">All</a>
+            <a href="/library"  class="btn btn-dark w-100 my-3">Back</a>
+        </div>
+        <div class="card" th:each="author:${authors}">
+            <h5 th:text="'Id: ' + ${author.id}"></h5>
+            <h3 th:text="${author.name}"></h3>
+            <a th:href="|/author/showAuthorAndBook/${genre.id}?authorId=${author.getId()}|" class="btn btn-dark w-100 mt-auto">Show</a>
+        </div>
+    </div>
+    <hr>
+    <h1>Books</h1>
+    <div class="card-container">
+        <div class="card" th:each="book:${books}">
+            <h3 th:text="${book.name}"></h3>
+            <a th:href="|/book/showGenreBook/${book.getId()}|" class="btn btn-dark text-white w-100 mt-auto">Show book info</a>
+        </div>
+    </div>
+    </div>
 </body>
 </html>
+
